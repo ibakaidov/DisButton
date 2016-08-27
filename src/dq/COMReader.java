@@ -4,10 +4,11 @@ import java.util.*;
 import jssc.*;
 
 public class COMReader {
-	public COMReader(String port) throws Throwable{
-        serialPort = new SerialPort(port);
+	public COMReader(String port, int rate) throws Throwable{
+
+		serialPort = new SerialPort(port);
         serialPort.openPort();
-        serialPort.setParams(SerialPort.BAUDRATE_9600,
+        serialPort.setParams(rate,
                                  SerialPort.DATABITS_8,
                                  SerialPort.STOPBITS_1,
                                  SerialPort.PARITY_NONE);
